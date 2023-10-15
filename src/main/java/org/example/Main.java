@@ -1,5 +1,5 @@
 package org.example;
-import java.util.HashMap;
+//import java.util.HashMap;
 
 public class Main {
     public static void main(String[] args)
@@ -25,15 +25,15 @@ public class Main {
         addResult = hashMap.put("+79204089109", "EEEEEE8");
 
         String searchResult = hashMap.get("+79204089107");
-//        var res = hashMap.toString();
-//        System.out.println(res);
-//        System.out.println();
+        String res = hashMap.toString();
+        System.out.println(res);
+//        System.out.println(hashMap.toString());
 //
 //        System.out.println(hashMap);
-
-        for(var item: hashMap.entrySet()){
-            System.out.printf("[%s : %s]\n", item.getKey(), item.getValue());
-        }
+//        for(var item: hashMap.entrySet()){
+//            System.out.printf("[%s : %s]\n", item.getKey(), item.getValue());
+//        }
     }
 
 }
+

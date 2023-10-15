@@ -17,6 +17,13 @@
 
 package org.example;
 
+import java.security.Key;
+import java.util.Arrays;
+import java.util.Hashtable;
+import java.util.*;
+
+import static java.lang.String.format;
+import static java.lang.String.valueOf;
 
 /**
  * Хэш-таблица
@@ -26,6 +33,9 @@ package org.example;
 public class HashMap<K, V> {
 
     //region Публичные методы
+
+
+
 
     /**
      * Свой метод PUT
@@ -93,25 +103,28 @@ public class HashMap<K, V> {
         return buf;
     }
 
-//    public String toString() {
-//        StringBuilder stringBuilder = new StringBuilder();
-//        stringBuilder.append(buckets);
-//        System.out.println(stringBuilder);
-//        System.out.println();
-//
-////        }
-//            return stringBuilder.toString();
-//    }
-
-
-
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("HashMap{");
+        var size = buckets.length;
+        for (var i=0; i<buckets.length; i++) {
+            Bucket bucket = buckets[i];
+        if(bucket == null) {
+                continue;
+            }
+            sb.append(bucket);
+            sb.append("\t");
+        }
+        sb.append("}");
+        return sb.toString();
+    }
 
     //endregion
 
     //region Методы
 
     /**
-     * Метод, производящий реклькулирование,
+     * Метод, производящий рекалькулирование,
      * если количество элементов становится больше 0,5 от длины массива
      */
     private void recalculate(){
@@ -128,6 +141,7 @@ public class HashMap<K, V> {
                 node=node.next;
             }
         }
+
     }
 
     /**
